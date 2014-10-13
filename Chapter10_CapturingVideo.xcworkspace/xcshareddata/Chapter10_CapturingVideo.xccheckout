@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D2C41AFA-5E92-4517-92A7-9D8DA72255D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Chapter10_CapturingVideo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0095FC625C0AAA2382A39E29A6C04732238864B5</key>
+		<string>https://github.com/cfd/openCViOSObjectTracking.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Chapter10_CapturingVideo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0095FC625C0AAA2382A39E29A6C04732238864B5</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cfd/openCViOSObjectTracking.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0095FC625C0AAA2382A39E29A6C04732238864B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0095FC625C0AAA2382A39E29A6C04732238864B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Images</string>
+		</dict>
+	</array>
+</dict>
+</plist>

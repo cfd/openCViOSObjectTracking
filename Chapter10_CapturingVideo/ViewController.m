@@ -83,7 +83,7 @@
     
     
     // Do some OpenCV processing with the image
-    //Capute each frame and use it as the "scene" image
+    //Capute each frame and use it as the "scene" image :)
     
     //Psuedocode
     /*
