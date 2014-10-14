@@ -2,7 +2,7 @@
 #include <iostream>
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
-#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/highgui/highgui.hpp" //remove
 #include "opencv2/calib3d/calib3d.hpp"
 #include "opencv2/nonfree/nonfree.hpp"
 
@@ -32,6 +32,9 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
     detector.detect( img_object, keypoints_object );
     detector.detect( img_scene, keypoints_scene );
     
+    
+    
+    
     //-- Step 2: Calculate descriptors (feature vectors)
     SurfDescriptorExtractor extractor;
     
@@ -39,6 +42,11 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
     
     extractor.compute( img_object, keypoints_object, descriptors_object );
     extractor.compute( img_scene, keypoints_scene, descriptors_scene );
+    
+    //print out size of keypoints vector?
+    printf("number of keypoints in object: %lu\n", keypoints_object.size());
+    printf("number of keypoints in scene: %lu\n", keypoints_scene.size());
+    
     
     //-- Step 3: Matching descriptor vectors using FLANN matcher
     FlannBasedMatcher matcher;
@@ -81,6 +89,11 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
         scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
     }
     
+    //print out size of keypoints vector?
+    printf("number of keypoints in object: %lu\n", keypoints_object.size());
+    printf("number of keypoints in scene: %lu\n", keypoints_scene.size());
+    
+    printf("inb4 the error");
     Mat H = findHomography(object, scene, CV_RANSAC );
     
     //-- Get the corners from the image_1 ( the object to be "detected" )

@@ -24,7 +24,7 @@ using namespace std;
 
 //https://www.youtube.com/watch?v=ZXn69V-1kEM
 
-int main()
+int method()
 {
 	//turn performance analysis functions on if testing = true
 	bool testing=false;

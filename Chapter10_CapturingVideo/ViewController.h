@@ -19,6 +19,7 @@
 {
     CvVideoCamera* videoCamera;
     BOOL isCapturing;
+    UIImage* capturedFrame;
 }
 
 @property (nonatomic, strong) CvVideoCamera* videoCamera;

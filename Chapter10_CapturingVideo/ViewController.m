@@ -41,6 +41,8 @@
                                 AVCaptureVideoOrientationPortrait;
     self.videoCamera.defaultFPS = 30;
     
+    self.videoCamera.grayscaleMode = YES;
+    
     isCapturing = NO;
     
     //find all interest points for training image (CD cover)
@@ -53,7 +55,7 @@
     UIImage* obj = [UIImage imageNamed:@"object.png"];
     UIImage* sce = [UIImage imageNamed:@"scene.png"];
     
-    detector([self cvMatFromUIImage:obj], [self cvMatFromUIImage:sce]);
+    //detector([self cvMatFromUIImage:obj], [self cvMatFromUIImage:sce]);
 }
 
 - (NSInteger)supportedInterfaceOrientations
@@ -73,12 +75,36 @@
 {
     [videoCamera stop];
     isCapturing = NO;
+    
+    //show captured frame
+    imageView.image = capturedFrame;
+    
 }
 
 - (void)processImage:(cv::Mat&)image
 {
     
     cv::Mat inputFrame = image;
+    //NSLog(@"%d", image.size);
+    
+    capturedFrame = [self UIImageFromCVMat:inputFrame];
+    NSLog(@"Frame");
+    
+    //cv::Mat finalFrame;
+    
+    NSString* string = [NSString stringWithFormat:@"%s", "hello world"];
+    cv::putText(image, [string UTF8String], cv::Point(30, 100), cv::FONT_HERSHEY_COMPLEX_SMALL, 2, CV_RGB(255,255,0), 1, 8);
+    
+    cv::Point tl(50,100);
+    cv::Point br(100,150);
+    
+    cv::Scalar box = cv::Scalar(0, 0, 0);
+    cv::rectangle(image, tl, br, box, 4, 8, 0);
+
+    //finalFrame.copyTo(image);
+    
+    
+    
     //send inputFrame to the other code or something :/ stuff.
     
     
@@ -173,6 +199,43 @@
     CGContextRelease(contextRef);
     
     return cvMat;
+}
+
+-(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
+{
+    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
+    CGColorSpaceRef colorSpace;
+    
+    if (cvMat.elemSize() == 1) {
+        colorSpace = CGColorSpaceCreateDeviceGray();
+    } else {
+        colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    
+    // Creating CGImage from cv::Mat
+    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
+                                        cvMat.rows,                                 //height
+                                        8,                                          //bits per component
+                                        8 * cvMat.elemSize(),                       //bits per pixel
+                                        cvMat.step[0],                            //bytesPerRow
+                                        colorSpace,                                 //colorspace
+                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
+                                        provider,                                   //CGDataProviderRef
+                                        NULL,                                       //decode
+                                        false,                                      //should interpolate
+                                        kCGRenderingIntentDefault                   //intent
+                                        );
+    
+    
+    // Getting UIImage from CGImage
+    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGDataProviderRelease(provider);
+    CGColorSpaceRelease(colorSpace);
+    
+    return finalImage;
 }
 
 @end

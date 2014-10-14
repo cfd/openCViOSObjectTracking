@@ -9,7 +9,7 @@
 
 using namespace cv;
 
-int main()
+int method()
 {
     Mat object = imread( "photo2.jpg", CV_LOAD_IMAGE_GRAYSCALE );
 
