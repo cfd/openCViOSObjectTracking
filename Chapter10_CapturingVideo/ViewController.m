@@ -109,7 +109,6 @@
 //    cv::Point br(150,150);
     cv::Scalar box = cv::Scalar(0, 0, 0);
     cv::rectangle(image, corners[0], corners[2], box, 4, 8, 0);
-
     //finalFrame.copyTo(image);
     
     

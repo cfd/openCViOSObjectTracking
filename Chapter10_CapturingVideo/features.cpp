@@ -48,7 +48,13 @@ vector<Point2f> detector(Mat img_scene)
     //-- Step 3: Matching descriptor vectors using FLANN matcher
     FlannBasedMatcher matcher;
     std::vector< DMatch > matches;
-    matcher.match( descriptors_object, descriptors_scene, matches );
+    try {
+        matcher.match( descriptors_object, descriptors_scene, matches );
+    } catch (cv::Exception) {
+        std::vector<Point2f> failed(4);
+        return failed;
+    }
+    
     
     double max_dist = 0; double min_dist = 100;
     
@@ -125,7 +131,7 @@ vector<Point2f> detector(Mat img_scene)
 //    //-- Show detected matches
 //    imshow( "Good Matches & Object detection", img_matches );
 //    
-//    waitKey(0);
+    //waitKey(0);
 //    
 //    printf("yay2");
     return scene_corners;
