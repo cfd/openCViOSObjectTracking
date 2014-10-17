@@ -2,7 +2,7 @@
 #include <iostream>
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
-#include "opencv2/highgui/highgui.hpp" //remove
+#include "opencv2/highgui/highgui.hpp"
 #include "opencv2/calib3d/calib3d.hpp"
 #include "opencv2/nonfree/nonfree.hpp"
 
@@ -11,16 +11,21 @@ using namespace cv;
 void readme();
 
 /** @function main */
-int detector(cv::Mat img_object, cv::Mat img_scene)
+vector<Point2f> detector(Mat img_scene)
 {
     
     
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"cover" ofType:@"jpg"];
+    Mat img_object = imread([path UTF8String], CV_LOAD_IMAGE_GRAYSCALE);
     
-    //Mat img_object = imread("object.png", CV_LOAD_IMAGE_GRAYSCALE );
-    //Mat img_scene = imread("scene.png", CV_LOAD_IMAGE_GRAYSCALE );
+    //path = [[NSBundle mainBundle] pathForResource:@"coverscene" ofType:@"jpg"];
+    //Mat img_scene = imread([path UTF8String], CV_LOAD_IMAGE_GRAYSCALE);
     
     if( !img_object.data || !img_scene.data )
-    { std::cout<< " --(!) Error reading images " << std::endl; return -1; }
+        { std::cout<< " --(!) Error reading images " << std::endl;
+            std::vector<Point2f> failed(4);
+            return failed;
+        }
     
     //-- Step 1: Detect the keypoints using SURF Detector
     int minHessian = 400;
@@ -32,9 +37,6 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
     detector.detect( img_object, keypoints_object );
     detector.detect( img_scene, keypoints_scene );
     
-    
-    
-    
     //-- Step 2: Calculate descriptors (feature vectors)
     SurfDescriptorExtractor extractor;
     
@@ -42,11 +44,6 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
     
     extractor.compute( img_object, keypoints_object, descriptors_object );
     extractor.compute( img_scene, keypoints_scene, descriptors_scene );
-    
-    //print out size of keypoints vector?
-    printf("number of keypoints in object: %lu\n", keypoints_object.size());
-    printf("number of keypoints in scene: %lu\n", keypoints_scene.size());
-    
     
     //-- Step 3: Matching descriptor vectors using FLANN matcher
     FlannBasedMatcher matcher;
@@ -89,32 +86,49 @@ int detector(cv::Mat img_object, cv::Mat img_scene)
         scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
     }
     
-    //print out size of keypoints vector?
-    printf("number of keypoints in object: %lu\n", keypoints_object.size());
-    printf("number of keypoints in scene: %lu\n", keypoints_scene.size());
     
-    printf("inb4 the error");
+    printf("Number of interst points: %lu", keypoints_object.size());
+    
+    printf("yay");
+    
+    
+    
     Mat H = findHomography(object, scene, CV_RANSAC );
     
     //-- Get the corners from the image_1 ( the object to be "detected" )
     std::vector<Point2f> obj_corners(4);
-    obj_corners[0] = cvPoint(0,0); obj_corners[1] = cvPoint( img_object.cols, 0 );
-    obj_corners[2] = cvPoint( img_object.cols, img_object.rows ); obj_corners[3] = cvPoint( 0, img_object.rows );
+    obj_corners[0] = cvPoint(0,0);
+    obj_corners[1] = cvPoint( img_object.cols, 0 );
+    obj_corners[2] = cvPoint( img_object.cols, img_object.rows );
+    obj_corners[3] = cvPoint( 0, img_object.rows );
     std::vector<Point2f> scene_corners(4);
+    
+    
     
     perspectiveTransform( obj_corners, scene_corners, H);
     
-    //-- Draw lines between the corners (the mapped object in the scene - image_2 )
-    line( img_matches, scene_corners[0] + Point2f( img_object.cols, 0), scene_corners[1] + Point2f( img_object.cols, 0), Scalar(0, 255, 0), 4 );
-    line( img_matches, scene_corners[1] + Point2f( img_object.cols, 0), scene_corners[2] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
-    line( img_matches, scene_corners[2] + Point2f( img_object.cols, 0), scene_corners[3] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
-    line( img_matches, scene_corners[3] + Point2f( img_object.cols, 0), scene_corners[0] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
     
-    //-- Show detected matches
-    imshow( "Good Matches & Object detection", img_matches );
+    printf("yay3");
     
-    waitKey(0);
-    return 0;
+    printf("\ncorners:\n");
+    printf("%f,%f\n", scene_corners[0].x, scene_corners[0].y);
+    printf("%f,%f\n", scene_corners[1].x, scene_corners[1].y);
+    printf("%f,%f\n", scene_corners[2].x, scene_corners[2].y);
+    printf("%f,%f\n", scene_corners[3].x, scene_corners[3].y);
+    
+//    //-- Draw lines between the corners (the mapped object in the scene - image_2 )
+//    line( img_matches, scene_corners[0] + Point2f( img_object.cols, 0), scene_corners[1] + Point2f( img_object.cols, 0), Scalar(0, 255, 0), 4 );
+//    line( img_matches, scene_corners[1] + Point2f( img_object.cols, 0), scene_corners[2] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
+//    line( img_matches, scene_corners[2] + Point2f( img_object.cols, 0), scene_corners[3] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
+//    line( img_matches, scene_corners[3] + Point2f( img_object.cols, 0), scene_corners[0] + Point2f( img_object.cols, 0), Scalar( 0, 255, 0), 4 );
+//    
+//    //-- Show detected matches
+//    imshow( "Good Matches & Object detection", img_matches );
+//    
+//    waitKey(0);
+//    
+//    printf("yay2");
+    return scene_corners;
 }
 
 

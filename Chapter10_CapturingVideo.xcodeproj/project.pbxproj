@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4BFBE9ADBF0D333A72490C2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE53AA0650AD37D198C650A1 /* libPods.a */; };
+		8355653D19EE90D100DD6DD2 /* MyUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8355653C19EE90D100DD6DD2 /* MyUIView.m */; };
+		8355653F19EE97B300DD6DD2 /* sceney.png in Resources */ = {isa = PBXBuildFile; fileRef = 8355653E19EE97B300DD6DD2 /* sceney.png */; };
+		8355654119EE9DE600DD6DD2 /* coverscene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8355654019EE9DE600DD6DD2 /* coverscene.jpg */; };
+		8355654519EEA70F00DD6DD2 /* coke.png in Resources */ = {isa = PBXBuildFile; fileRef = 8355654419EEA70F00DD6DD2 /* coke.png */; };
 		8397110119EBEEF2000F7B70 /* features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839710FF19EBEEF2000F7B70 /* features.cpp */; };
 		8397110419EBEFAB000F7B70 /* object.png in Resources */ = {isa = PBXBuildFile; fileRef = 8397110219EBEFAB000F7B70 /* object.png */; };
 		8397110519EBEFAB000F7B70 /* scene.png in Resources */ = {isa = PBXBuildFile; fileRef = 8397110319EBEFAB000F7B70 /* scene.png */; };
@@ -36,6 +40,11 @@
 
 /* Begin PBXFileReference section */
 		1798003D15B8D529E5CE1E92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8355653B19EE90D100DD6DD2 /* MyUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIView.h; sourceTree = "<group>"; };
+		8355653C19EE90D100DD6DD2 /* MyUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIView.m; sourceTree = "<group>"; };
+		8355653E19EE97B300DD6DD2 /* sceney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sceney.png; sourceTree = "<group>"; };
+		8355654019EE9DE600DD6DD2 /* coverscene.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coverscene.jpg; sourceTree = "<group>"; };
+		8355654419EEA70F00DD6DD2 /* coke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coke.png; sourceTree = "<group>"; };
 		839710FF19EBEEF2000F7B70 /* features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = features.cpp; sourceTree = "<group>"; };
 		8397110019EBEEF2000F7B70 /* features.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = features.hpp; sourceTree = "<group>"; };
 		8397110219EBEFAB000F7B70 /* object.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = object.png; sourceTree = "<group>"; };
@@ -149,6 +158,8 @@
 				839710FF19EBEEF2000F7B70 /* features.cpp */,
 				8397110619EBF53B000F7B70 /* surf.cpp */,
 				8397110B19EC0052000F7B70 /* main.cpp */,
+				8355653B19EE90D100DD6DD2 /* MyUIView.h */,
+				8355653C19EE90D100DD6DD2 /* MyUIView.m */,
 				83FA79191748FE9000248405 /* Supporting Files */,
 			);
 			path = Chapter10_CapturingVideo;
@@ -157,8 +168,11 @@
 		83FA79191748FE9000248405 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8355654019EE9DE600DD6DD2 /* coverscene.jpg */,
+				8355654419EEA70F00DD6DD2 /* coke.png */,
 				8397110919EC001B000F7B70 /* cover.jpg */,
 				8397110219EBEFAB000F7B70 /* object.png */,
+				8355653E19EE97B300DD6DD2 /* sceney.png */,
 				8397110319EBEFAB000F7B70 /* scene.png */,
 				83FA791A1748FE9000248405 /* Chapter10_CapturingVideo-Info.plist */,
 				83FA791B1748FE9000248405 /* InfoPlist.strings */,
@@ -224,11 +238,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8355653F19EE97B300DD6DD2 /* sceney.png in Resources */,
 				83FA791D1748FE9000248405 /* InfoPlist.strings in Resources */,
 				83FA79251748FE9000248405 /* Default.png in Resources */,
 				83FA79271748FE9000248405 /* Default@2x.png in Resources */,
 				83FA79291748FE9000248405 /* Default-568h@2x.png in Resources */,
+				8355654519EEA70F00DD6DD2 /* coke.png in Resources */,
 				8397110419EBEFAB000F7B70 /* object.png in Resources */,
+				8355654119EE9DE600DD6DD2 /* coverscene.jpg in Resources */,
 				83FA792C1748FE9000248405 /* MainStoryboard_iPhone.storyboard in Resources */,
 				8397110519EBEFAB000F7B70 /* scene.png in Resources */,
 				8397110A19EC001B000F7B70 /* cover.jpg in Resources */,
@@ -281,6 +298,7 @@
 				83FA79231748FE9000248405 /* AppDelegate.m in Sources */,
 				8397110719EBF53B000F7B70 /* surf.cpp in Sources */,
 				83FA79321748FE9000248405 /* ViewController.m in Sources */,
+				8355653D19EE90D100DD6DD2 /* MyUIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

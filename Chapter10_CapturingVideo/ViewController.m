@@ -29,6 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//gets corners right, just that the displayed image on phone is different dimensions, causing the correct coordinates appearing wrong.
+    
+    //imageView.image = [UIImage imageNamed:@"coverscene.jpg"];
+    
 
     self.videoCamera = [[CvVideoCamera alloc]
                         initWithParentView:imageView];
@@ -41,7 +46,7 @@
                                 AVCaptureVideoOrientationPortrait;
     self.videoCamera.defaultFPS = 30;
     
-    self.videoCamera.grayscaleMode = YES;
+    self.videoCamera.grayscaleMode = NO;
     
     isCapturing = NO;
     
@@ -52,10 +57,10 @@
     
     //process image method is called --- every frame?? i guess
     
-    UIImage* obj = [UIImage imageNamed:@"object.png"];
-    UIImage* sce = [UIImage imageNamed:@"scene.png"];
+    //UIImage* obj = [UIImage imageNamed:@"object.png"];
+    //UIImage* sce = [UIImage imageNamed:@"scene.png"];
     
-    //detector([self cvMatFromUIImage:obj], [self cvMatFromUIImage:sce]);
+    //detector();
 }
 
 - (NSInteger)supportedInterfaceOrientations
@@ -77,29 +82,33 @@
     isCapturing = NO;
     
     //show captured frame
-    imageView.image = capturedFrame;
+    //imageView.image = capturedFrame;
     
 }
 
 - (void)processImage:(cv::Mat&)image
 {
     
-    cv::Mat inputFrame = image;
+    //cv::Mat inputFrame = image;
     //NSLog(@"%d", image.size);
     
-    capturedFrame = [self UIImageFromCVMat:inputFrame];
-    NSLog(@"Frame");
+   // capturedFrame = [self UIImageFromCVMat:inputFrame];
+   // NSLog(@"Frame");
     
     //cv::Mat finalFrame;
     
-    NSString* string = [NSString stringWithFormat:@"%s", "hello world"];
-    cv::putText(image, [string UTF8String], cv::Point(30, 100), cv::FONT_HERSHEY_COMPLEX_SMALL, 2, CV_RGB(255,255,0), 1, 8);
+   // NSString* string = [NSString stringWithFormat:@"%s", "hello world"];
+   // cv::putText(image, [string UTF8String], cv::Point(30, 100), cv::FONT_HERSHEY_COMPLEX_SMALL, 2, CV_RGB(255,255,0), 1, 8);
     
-    cv::Point tl(50,100);
-    cv::Point br(100,150);
+    cv::vector<cv::Point2f> corners = detector(image);
     
+    
+    //imageView.image = [UIImage imageNamed:@"scene.png"];
+    
+//    cv::Point tl(50,50);
+//    cv::Point br(150,150);
     cv::Scalar box = cv::Scalar(0, 0, 0);
-    cv::rectangle(image, tl, br, box, 4, 8, 0);
+    cv::rectangle(image, corners[0], corners[2], box, 4, 8, 0);
 
     //finalFrame.copyTo(image);
     

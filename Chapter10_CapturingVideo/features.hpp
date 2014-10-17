@@ -9,6 +9,6 @@
 #ifndef Chapter10_CapturingVideo_features_hpp
 #define Chapter10_CapturingVideo_features_hpp
 
-int detector(cv::Mat obj, cv::Mat sce);
+cv::vector<cv::Point2f> detector(cv::Mat img_scene);
 
 #endif
