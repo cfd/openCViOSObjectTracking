@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4BFBE9ADBF0D333A72490C2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE53AA0650AD37D198C650A1 /* libPods.a */; };
+		8344539F19F6689900476D77 /* greycoke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8344539E19F6689900476D77 /* greycoke.jpg */; };
+		834453A119F6696D00476D77 /* coke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 834453A019F6696D00476D77 /* coke.jpg */; };
+		834453A719F66BB600476D77 /* cokelabel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 834453A619F66BB600476D77 /* cokelabel.jpg */; };
 		8355653D19EE90D100DD6DD2 /* MyUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8355653C19EE90D100DD6DD2 /* MyUIView.m */; };
 		8355653F19EE97B300DD6DD2 /* sceney.png in Resources */ = {isa = PBXBuildFile; fileRef = 8355653E19EE97B300DD6DD2 /* sceney.png */; };
 		8355654119EE9DE600DD6DD2 /* coverscene.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8355654019EE9DE600DD6DD2 /* coverscene.jpg */; };
@@ -18,6 +21,10 @@
 		8397110719EBF53B000F7B70 /* surf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8397110619EBF53B000F7B70 /* surf.cpp */; };
 		8397110A19EC001B000F7B70 /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8397110919EC001B000F7B70 /* cover.jpg */; };
 		8397110C19EC0052000F7B70 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8397110B19EC0052000F7B70 /* main.cpp */; };
+		83E78D5119F67A92004AAF8A /* coin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83E78D5019F67A92004AAF8A /* coin.jpg */; };
+		83E78D5519F67D1D004AAF8A /* dollarcoin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83E78D5419F67D1D004AAF8A /* dollarcoin.jpg */; };
+		83E78D5719F7830D004AAF8A /* bars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83E78D5619F7830D004AAF8A /* bars.jpg */; };
+		83E78D5919F783D1004AAF8A /* fruits.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83E78D5819F783D1004AAF8A /* fruits.jpg */; };
 		83FA79131748FE9000248405 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FA79121748FE9000248405 /* UIKit.framework */; };
 		83FA79151748FE9000248405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FA79141748FE9000248405 /* Foundation.framework */; };
 		83FA79171748FE9000248405 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FA79161748FE9000248405 /* CoreGraphics.framework */; };
@@ -40,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		1798003D15B8D529E5CE1E92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8344539E19F6689900476D77 /* greycoke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = greycoke.jpg; sourceTree = "<group>"; };
+		834453A019F6696D00476D77 /* coke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coke.jpg; sourceTree = "<group>"; };
+		834453A619F66BB600476D77 /* cokelabel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cokelabel.jpg; sourceTree = "<group>"; };
 		8355653B19EE90D100DD6DD2 /* MyUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIView.h; sourceTree = "<group>"; };
 		8355653C19EE90D100DD6DD2 /* MyUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIView.m; sourceTree = "<group>"; };
 		8355653E19EE97B300DD6DD2 /* sceney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sceney.png; sourceTree = "<group>"; };
@@ -52,6 +62,10 @@
 		8397110619EBF53B000F7B70 /* surf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surf.cpp; sourceTree = "<group>"; };
 		8397110919EC001B000F7B70 /* cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover.jpg; sourceTree = "<group>"; };
 		8397110B19EC0052000F7B70 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		83E78D5019F67A92004AAF8A /* coin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coin.jpg; sourceTree = "<group>"; };
+		83E78D5419F67D1D004AAF8A /* dollarcoin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dollarcoin.jpg; sourceTree = "<group>"; };
+		83E78D5619F7830D004AAF8A /* bars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bars.jpg; sourceTree = "<group>"; };
+		83E78D5819F783D1004AAF8A /* fruits.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fruits.jpg; sourceTree = "<group>"; };
 		83FA790E1748FE9000248405 /* Chapter10_CapturingVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter10_CapturingVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FA79121748FE9000248405 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83FA79141748FE9000248405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,8 +182,15 @@
 		83FA79191748FE9000248405 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8344539E19F6689900476D77 /* greycoke.jpg */,
+				834453A019F6696D00476D77 /* coke.jpg */,
 				8355654019EE9DE600DD6DD2 /* coverscene.jpg */,
+				834453A619F66BB600476D77 /* cokelabel.jpg */,
+				83E78D5619F7830D004AAF8A /* bars.jpg */,
+				83E78D5819F783D1004AAF8A /* fruits.jpg */,
 				8355654419EEA70F00DD6DD2 /* coke.png */,
+				83E78D5419F67D1D004AAF8A /* dollarcoin.jpg */,
+				83E78D5019F67A92004AAF8A /* coin.jpg */,
 				8397110919EC001B000F7B70 /* cover.jpg */,
 				8397110219EBEFAB000F7B70 /* object.png */,
 				8355653E19EE97B300DD6DD2 /* sceney.png */,
@@ -241,13 +262,20 @@
 				8355653F19EE97B300DD6DD2 /* sceney.png in Resources */,
 				83FA791D1748FE9000248405 /* InfoPlist.strings in Resources */,
 				83FA79251748FE9000248405 /* Default.png in Resources */,
+				83E78D5919F783D1004AAF8A /* fruits.jpg in Resources */,
+				83E78D5119F67A92004AAF8A /* coin.jpg in Resources */,
 				83FA79271748FE9000248405 /* Default@2x.png in Resources */,
+				834453A719F66BB600476D77 /* cokelabel.jpg in Resources */,
 				83FA79291748FE9000248405 /* Default-568h@2x.png in Resources */,
 				8355654519EEA70F00DD6DD2 /* coke.png in Resources */,
 				8397110419EBEFAB000F7B70 /* object.png in Resources */,
 				8355654119EE9DE600DD6DD2 /* coverscene.jpg in Resources */,
+				8344539F19F6689900476D77 /* greycoke.jpg in Resources */,
 				83FA792C1748FE9000248405 /* MainStoryboard_iPhone.storyboard in Resources */,
+				83E78D5519F67D1D004AAF8A /* dollarcoin.jpg in Resources */,
 				8397110519EBEFAB000F7B70 /* scene.png in Resources */,
+				83E78D5719F7830D004AAF8A /* bars.jpg in Resources */,
+				834453A119F6696D00476D77 /* coke.jpg in Resources */,
 				8397110A19EC001B000F7B70 /* cover.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +416,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chapter10_CapturingVideo/Chapter10_CapturingVideo-Prefix.pch";
 				INFOPLIST_FILE = "Chapter10_CapturingVideo/Chapter10_CapturingVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -405,6 +434,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chapter10_CapturingVideo/Chapter10_CapturingVideo-Prefix.pch";
 				INFOPLIST_FILE = "Chapter10_CapturingVideo/Chapter10_CapturingVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

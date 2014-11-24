@@ -9,6 +9,8 @@
 #ifndef Chapter10_CapturingVideo_features_hpp
 #define Chapter10_CapturingVideo_features_hpp
 
-cv::vector<cv::Point2f> detector(cv::Mat img_scene);
+bool setup(NSString* filename);
+cv::vector<cv::Point2f> detect(cv::Mat img_scene);
+
 
 #endif

@@ -34,6 +34,9 @@
     
     //imageView.image = [UIImage imageNamed:@"coverscene.jpg"];
     
+    
+    
+    
 
     self.videoCamera = [[CvVideoCamera alloc]
                         initWithParentView:imageView];
@@ -50,6 +53,14 @@
     
     isCapturing = NO;
     
+    bool isSet = setup(@"fruits.jpg");
+    NSLog(@"setup done");
+    if(isSet){
+        NSLog(@"SET!");
+    } else{
+        NSLog(@"SET FAILED!");
+    }
+    
     //find all interest points for training image (CD cover)
     //will need to have separate methods in the .cpp file. as it includes windows and whatnot that the phone doesn't open.
     
@@ -63,7 +74,7 @@
     //detector();
 }
 
-- (NSInteger)supportedInterfaceOrientations
+- (NSUInteger)supportedInterfaceOrientations
 {
     // Only portrait orientation
     return UIInterfaceOrientationMaskPortrait;
@@ -100,15 +111,22 @@
    // NSString* string = [NSString stringWithFormat:@"%s", "hello world"];
    // cv::putText(image, [string UTF8String], cv::Point(30, 100), cv::FONT_HERSHEY_COMPLEX_SMALL, 2, CV_RGB(255,255,0), 1, 8);
     
-    cv::vector<cv::Point2f> corners = detector(image);
+    cv::vector<cv::Point2f> corners = detect(image);
     
     
     //imageView.image = [UIImage imageNamed:@"scene.png"];
     
 //    cv::Point tl(50,50);
 //    cv::Point br(150,150);
-    cv::Scalar box = cv::Scalar(0, 0, 0);
-    cv::rectangle(image, corners[0], corners[2], box, 4, 8, 0);
+   // cv::Scalar box = cv::Scalar(0, 0, 0);
+   // cv::rectangle(image, corners[0], corners[2], box, 4, 8, 0);
+    
+    //int thickness = 2;
+    //int lineType = 8;
+    line(image, corners[0], corners[1], cv::Scalar( 0, 0, 0 ), 12, 8);
+    line(image, corners[1], corners[2], cv::Scalar( 0, 0, 0 ), 12, 8);
+    line(image, corners[2], corners[3], cv::Scalar( 0, 0, 0 ), 12, 8);
+    line(image, corners[3], corners[0], cv::Scalar( 0, 0, 0 ), 12, 8);
     //finalFrame.copyTo(image);
     
     
